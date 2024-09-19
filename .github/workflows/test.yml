@@ -1,9 +1,11 @@
-name: JSON Function
+name: Status check
 on: push
 jobs:
     print:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "${CONTEXT}"
+            - run: exit 1
               env:
                     CONTEXT: ${{ toJson(github)}}
+            - run: echo "Hello"
+              if: ${{failure()}}
