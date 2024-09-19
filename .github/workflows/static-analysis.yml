@@ -18,3 +18,5 @@ jobs:
                 echo "Running static analysis..."
                 docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest
                 echo "Done!"
+
+                
