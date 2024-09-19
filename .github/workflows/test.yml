@@ -4,7 +4,6 @@ jobs:
     print:
         runs-on: ubuntu-latest
         env:
-            GITHUB_REPOSITORY: ${{ github.repository }}
-            GITHUB_ACTOR: ${{ github.actor }}
+            USERNAME: ${{vars.USERNAME}}
         steps:
-            - run: echo "${GITHUB_REPOSITORY} ${GITHUB_ACTOR}" 
+            - run: echo "${USERNAME}" 
