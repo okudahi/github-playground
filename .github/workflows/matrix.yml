@@ -1,11 +1,14 @@
-name: Multi-dimensional matrix
+name: Manual matrix
 on: push
 jobs:
   print:
     strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        version: [18, 20]
+      matrix: # 多次元マトリックスの定義
+        include: # 組み合わせ条件を手動で列挙
+          - os: ubuntu-latest # パターン1
+            version: 20
+          - os: macos-latest # パターン2
+            version: 18
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-node@v4
