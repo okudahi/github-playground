@@ -1,8 +1,9 @@
 name: Test
 on:
-  push:
-    branches:
-      - test
+  pull_request: # Triggers on pull request creation
+    paths:
+      - 'go/**/*.go' # Only triggers when Go files are changed
+
 
 jobs:
   test:
