@@ -1,13 +1,9 @@
-name: Literals
+name: JSON Function
 on: push
 jobs:
     print:
         runs-on: ubuntu-latest
         steps:
-            - run: printenv | grep 'LITERAL_'
+            - run: echo "${CONTEXT}"
               env:
-                  LITERAL_NULL: ${{ null }}
-                  LITERAL_BOOLEAN: ${{ true }}
-                  LITERAL_NUMBER: ${{ 42 }}
-                  LTTERAL_STRING: ${{ 'Hello' }}
-                  LITERAL_OMIT_STRING: World
+                    CONTEXT: ${{ toJson(github)}}
